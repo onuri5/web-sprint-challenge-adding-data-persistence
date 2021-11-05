@@ -1,6 +1,6 @@
 const Projects = require("./model");
 
-function handleError(err, req, res, next) {
+function handleError(err, req, res, next) { // eslint-disable-line
   res.status(err.status || 500).json({
     message: err.message,
     prodMessage: "something went really wrong!",
