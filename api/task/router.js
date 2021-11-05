@@ -5,7 +5,14 @@ const { handleError, binaryToBoolTasks } = require("../project/middleware");
 const router = express.Router();
 
 router.get("/", binaryToBoolTasks, (req, res, next) => {
-  Tasks.getProjects()
+  // Tasks.getProjects()
+  //   .then(() => {
+  //     res.status(200).json(req.validArr);
+  //   })
+  //   .catch(next);
+  // Tried to implement but wouldn't return all tasks.
+
+  Tasks.getTasks()
     .then(() => {
       res.status(200).json(req.validArr);
     })

@@ -28,7 +28,7 @@ const binaryToBool = (req, res, next) => {
 };
 
 const binaryToBoolTasks = (req, res, next) => {
-  Tasks.getProjects().then((tasks) => {
+  Tasks.getTasks().then((tasks) => {
     const finalArr = [];
     tasks.forEach((task) => {
       finalArr.push({
@@ -36,7 +36,7 @@ const binaryToBoolTasks = (req, res, next) => {
         task_completed: task.task_completed === 0 ? false : true,
       });
     });
-
+    
     req.validArr = finalArr;
     next();
   });
@@ -45,5 +45,5 @@ const binaryToBoolTasks = (req, res, next) => {
 module.exports = {
   handleError,
   binaryToBool,
-  binaryToBoolTasks,
+  binaryToBoolTasks
 };
